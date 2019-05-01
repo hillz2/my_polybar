@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
 import requests
-import os
 import json
 import locale
 
-home = os.path.expanduser('~')
 locale.setlocale(locale.LC_ALL, 'id_ID.UTF-8')
 data = requests.get('https://indodax.com/api/btc_idr/ticker').text
 json = json.loads(data)

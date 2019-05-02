@@ -278,10 +278,7 @@ interval = 300
 exec = ~/.config/polybar/crypto.py
 format-underline = #7fdfff
 format-foreground = #00faff
-
-click-left = ~/.config/polybar/crypto.py
-click-middle = ~/.config/polybar/crypto.py
-click-right = ~/.config/polybar/crypto.py
+tail = true
 
 [module/network-traffic]
 type = custom/script

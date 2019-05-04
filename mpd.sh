@@ -16,4 +16,4 @@ if [[ "$1" == "next_song" ]]; then
 	mpc next
 fi
 
-echo "$(mpc -f '%artist% - %title%' current | cut -c 1-40) $(mpc -f '\[%time%\]' current)"
+echo "$(mpc -f '%title%' current | cut -c 1-40) $(mpc -f '\[%time%\]' current)"

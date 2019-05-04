@@ -56,8 +56,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = song
-modules-right = network-traffic crypto ram cpu wlan temperature date powermenu
+modules-center = mpd
+modules-right = network-traffic crypto ram cpu wlan temperature date
 
 tray-position = right
 tray-padding = 0
@@ -166,20 +166,6 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 ; Separator in between workspaces
 ; label-separator = |
 
-
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <toggle> <icon-next> <label-song> <label-time>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 45
-label-song-ellipsis = true
-
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -260,11 +246,8 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date =
-date-alt = " %d-%b-%Y"
-
+date = "%A %d-%b-%Y"
 time = %H:%M:%S
-time-alt = %H:%M:%S
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
@@ -286,7 +269,7 @@ exec = ~/.config/polybar/network-traffic.sh
 tail = true
 format-underline = #ddff00
 
-[module/song]
+[module/mpd]
 type = custom/script
 exec = ~/.config/polybar/mpd.sh
 tail = true

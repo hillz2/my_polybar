@@ -22,8 +22,6 @@ INTERFACES="wlan0"
 declare -A bytes
 
 for interface in $INTERFACES; do
-	iface_name=$(iwgetid -r)
-	iface_ip=$(ifconfig "${interface}" | grep -w 'inet' | awk '{print $2}')
 	bytes[past_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
 	bytes[past_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
 done
@@ -33,6 +31,8 @@ while true; do
 	up=0
 
 	for interface in $INTERFACES; do
+		iface_name=$(iwgetid -r)
+		iface_ip=$(ifconfig "${interface}" | grep -w 'inet' | awk '{print $2}')
 		bytes[now_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
 		bytes[now_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
 
